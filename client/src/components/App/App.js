@@ -23,7 +23,7 @@ class App extends React.Component {
   fetchNotes = () => {
     axios.get(`${ api }/notes`)
       .then((res) => {
-        const notes = res.data;
+        const { notes } = res.data;
         console.log('notes', notes);
         this.setState({ notes });
       });
@@ -37,7 +37,7 @@ class App extends React.Component {
     e.preventDefault();
     const { textFieldValue } = this.state;
     if (textFieldValue) {
-      axios.post(`${ api }/note`, { title: textFieldValue })
+      axios.post(`${ api }/note`, { note: { title: textFieldValue } })
         .then(() => {
           this.fetchNotes();
         })
