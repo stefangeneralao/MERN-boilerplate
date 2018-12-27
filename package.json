@@ -1,0 +1,12 @@
+{
+  "name": "mern",
+  "version": "1.0.0",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn && concurrently --names \"SERVER,CLIENT\" -c \"bgGreen.bold,bgMagenta.bold\" \"yarn --cwd server start\" \"yarn --cwd client start\"",
+    "deploy": "yarn && concurrently --names \"SERVER,CLIENT\" -c \"bgGreen.bold,bgMagenta.bold\" \"yarn --cwd server deploy\" \"yarn --cwd client deploy\""
+  },
+  "dependencies": {
+    "concurrently": "^4.1.0"
+  }
+}

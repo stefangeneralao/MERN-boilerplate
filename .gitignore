@@ -1,0 +1,9 @@
+node_modules
+.vscode/
+.netlify/state.json
+
+client/node_modules/
+client/build
+
+server/node_modules/
+server/dbConnectionString.json

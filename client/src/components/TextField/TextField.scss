@@ -1,0 +1,33 @@
+.text-field {
+  grid-area: text-field;
+  margin: 0 10px;
+
+  form {
+    width: 100%;
+  }
+
+  input {
+    position: relative;
+    width: 100%;
+    line-height: 25px;
+    bottom: 0px;
+    font-size: 1.0rem;
+    background-color: #f6f6f6;
+    border: 0;
+    border-radius: 25px;
+    text-indent: 12px;
+    transition: 100ms;
+    text-align: center;
+  }
+  
+  input:hover {
+    background-color: #efefef;
+    transition: 250ms;
+  }
+  
+  input:focus {
+    outline: none;
+    box-shadow: 0px 0.1px 5px #2962ff;
+    background-color: white;
+  }
+}
