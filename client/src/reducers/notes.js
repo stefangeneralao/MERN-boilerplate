@@ -1,9 +1,10 @@
 const notes = (state = [], action) => {
   switch (action.type) {
-    case 'ADD_NOTE':
+    case 'ADD_NOTES':
+      console.log(action.notes);
       return [
         ...state,
-        action.payload,
+        ...action.notes,
       ];
 
     default:
