@@ -12,6 +12,7 @@ export const getNotes = (req, res) => {
 
 export const addNote = (req, res) => {
   const { title } = req.body.note;
+  console.log('body', req.body);
   if (!title) {
     res.sendStatus(403);
     return;
