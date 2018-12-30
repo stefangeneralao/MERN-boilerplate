@@ -1,9 +1,9 @@
 import React from 'react';
 import './App.scss';
-import Main from '../Main/Main';
-import Header from '../Header/Header';
-import Note from '../Note/Note';
-import TextField from '../NewNoteTextField/NewNoteTextFieldContainer';
+import Main from 'components/Main/Main';
+import Header from 'components/Header/Header';
+import TextField from 'components/NewNoteTextField/NewNoteTextFieldContainer';
+import Note from 'components/Note/Note';
 
 class App extends React.Component {
   componentDidMount() {
