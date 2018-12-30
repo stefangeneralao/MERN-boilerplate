@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.scss';
-import Main from '../Main/Main';
-import Header from '../Header/Header';
+import Main from 'components/Main/Main';
+import Header from 'components/Header/Header';
 import axios from 'axios';
-import { api } from '../../config';
-import TextField from '../TextField/TextField';
-import Note from '../Note/Note';
+import { api } from 'config';
+import TextField from 'components/TextField/TextField';
+import Note from 'components/Note/Note';
 
 class App extends React.Component {
   constructor() {
