@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { postNote, setNewNoteValue, clearNewNoteValue } from '../../actions';
+import { postNote, setNewNoteValue, clearNewNoteValue } from 'actions';
 import TextField from './NewNoteTextField';
 
 const mapStateToProps = state => ({

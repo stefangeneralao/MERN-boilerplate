@@ -2,7 +2,7 @@ import React from 'react';
 import NoteItem from './NoteItem/NoteItem';
 import './Note.scss';
 import axios from 'axios';
-import { api } from '../../config';
+import { api } from 'config';
 import NewItemTextFieldContainer from './NewItemTextField/NewItemTextFieldContainer';
 
 class Note extends React.Component {
