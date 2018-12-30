@@ -1,20 +1,20 @@
 import React from 'react';
 
-const NewItemTextField = ({ noteId, value, onSubmit, onChange, clearTextField }) => {
+const NewItemTextField = ({ onSubmit }) => {
   const onSubmitHandler = e => {
     e.preventDefault();
-    onSubmit(noteId, value);
-    clearTextField(noteId);
+    const { value } = e.target.noteItemField;
+    onSubmit(value);
+    e.target.noteItemField.value = '';
   };
-
-  const onChangeHandler = e => {
-    const { value } = e.currentTarget;
-    onChange(noteId, e.currentTarget.value);
-  }
   
   return (
     <form onSubmit={ onSubmitHandler }>
-      <input type="text" onChange={ onChangeHandler } value={ value } />
+      <input
+        type="text"
+        name="noteItemField"
+        readOnly={ false }
+      />
     </form>
   );
 };

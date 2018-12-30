@@ -73,14 +73,3 @@ export const submitNoteItem = (noteId, label) => (
     }
   }
 );
-
-export const setNewNoteItemValue = (noteId, label) => ({
-  type: 'SET_NEW_NOTE_ITEM_VALUE',
-  noteId,
-  label,
-});
-
-export const clearNewNoteItemValue = noteId => ({
-  type: 'CLEAR_NEW_NOTE_ITEM_VALUE',
-  noteId
-});
