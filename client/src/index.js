@@ -9,9 +9,10 @@ import rootReducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
 
+const composeEnhancers = composeWithDevTools({});
 const store = createStore(
   rootReducer,
-  composeWithDevTools(
+  composeEnhancers(
     applyMiddleware(
       thunkMiddleware,
     ),

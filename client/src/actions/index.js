@@ -49,3 +49,38 @@ export const setNewNoteValue = value => ({
 export const clearNewNoteValue = () => ({
   type: 'CLEAR_NEW_NOTE_VALUE',
 });
+
+export const addNoteItem = (noteId, noteItem) => ({
+  type: 'ADD_NOTE_ITEM',
+  noteId,
+  noteItem,
+});
+
+export const submitNoteItem = (noteId, label) => (
+  async dispatch => {
+    try {
+      const response = await axios.post(
+        `${ api }/noteitem`,
+        {
+          noteId,
+          label,
+        },
+      );
+      const { noteItem } = response.data;
+      dispatch(addNoteItem(noteId, noteItem));
+    } catch (error) {
+      console.log('An error occurred.', error);
+    }
+  }
+);
+
+export const setNewNoteItemValue = (noteId, label) => ({
+  type: 'SET_NEW_NOTE_ITEM_VALUE',
+  noteId,
+  label,
+});
+
+export const clearNewNoteItemValue = noteId => ({
+  type: 'CLEAR_NEW_NOTE_ITEM_VALUE',
+  noteId
+});

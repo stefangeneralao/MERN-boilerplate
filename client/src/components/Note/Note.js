@@ -1,9 +1,9 @@
 import React from 'react';
 import NoteItem from './NoteItem/NoteItem';
 import './Note.scss';
-// import TextField from '../TextField/TextField';
 import axios from 'axios';
 import { api } from '../../config';
+import NewItemTextFieldContainer from './NewItemTextField/NewItemTextFieldContainer';
 
 class Note extends React.Component {
   onChangeHandler = e => {
@@ -32,9 +32,7 @@ class Note extends React.Component {
   }
   
   render() {
-    const { title, items, textFieldValue } = this.props;
-    console.log('note props', this.props);
-    const { onChangeHandler, onSubmitHandler } = this;
+    const { title, items, id } = this.props;
     return (
       <div className="note">
         <h2>{ title }</h2>
@@ -45,13 +43,7 @@ class Note extends React.Component {
             completed={ completed }
           />
         )) }
-        <form onSubmit={ onSubmitHandler }>
-          <input
-            type="text"
-            value={ textFieldValue }
-            onChange={ onChangeHandler }
-          />
-        </form>
+        <NewItemTextFieldContainer id={ id } />
       </div>
     );
   }
