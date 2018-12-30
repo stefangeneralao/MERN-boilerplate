@@ -2,7 +2,7 @@ import { Schema, model } from 'mongoose';
 
 const NoteItemSchema = new Schema({
   label: String,
-  completed: { type: Boolean, required: true },
+  completed: { type: Boolean, default: false, required: true },
   createdAt: { type: Date, default: Date.now, required: true },
 })
 

@@ -1,18 +1,11 @@
 import React from 'react';
 import NoteItem from './NoteItem/NoteItem';
 import './Note.scss';
-import TextField from '../TextField/TextField';
 import axios from 'axios';
-import { api } from '../../config';
+import { api } from 'config';
+import NewItemTextFieldContainer from './NewItemTextField/NewItemTextFieldContainer';
 
 class Note extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      textFieldValue: '',
-    };
-  }
-
   onChangeHandler = e => {
     const { value } = e.currentTarget;
     this.setState({ textFieldValue: value });
@@ -39,9 +32,7 @@ class Note extends React.Component {
   }
   
   render() {
-    const { title, items } = this.props;
-    const { textFieldValue } = this.state;
-    const { onChangeHandler, onSubmitHandler } = this;
+    const { title, items, id } = this.props;
     return (
       <div className="note">
         <h2>{ title }</h2>
@@ -52,11 +43,7 @@ class Note extends React.Component {
             completed={ completed }
           />
         )) }
-        <TextField
-          value={ textFieldValue }
-          onChange={ onChangeHandler }
-          onSubmit={ onSubmitHandler }
-        />
+        <NewItemTextFieldContainer id={ id } />
       </div>
     );
   }

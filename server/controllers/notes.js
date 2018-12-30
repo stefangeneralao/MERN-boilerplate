@@ -1,6 +1,6 @@
 import { Note, NoteItem } from '../models/notes';
 
-export const getNotes = (req, res) => {
+export const getNotes = (_req, res) => {
   Note.find().sort('-createdAt').exec((err, notes) => {
     if (err) {
       res.status(500).send(err);
@@ -30,12 +30,16 @@ export const addNote = (req, res) => {
 export const addNoteItem = (req, res) => {
   const { noteId, label } = req.body;
   const newNoteItem = new NoteItem({ label });
-  Note.updateOne({ _id: noteId }, { $push: { items: newNoteItem } }, (err, notes) => {
-    if (err) {
-      res.sendStatus(403);
+  Note.findOneAndUpdate(
+    { _id: noteId },
+    { $push: { items: newNoteItem } },
+    err => {
+      if (err) {
+        res.sendStatus(403);
+        return;
+      }
+      res.status(200).send({ noteItem: newNoteItem });
       return;
     }
-    res.sendStatus(200);
-    return;
-  });
+  );
 }
