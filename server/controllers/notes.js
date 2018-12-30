@@ -31,12 +31,12 @@ export const addNote = (req, res) => {
 export const addNoteItem = (req, res) => {
   const { noteId, label } = req.body;
   const newNoteItem = new NoteItem({ label });
-  Note.updateOne({ _id: noteId }, { $push: { items: newNoteItem } }, (err, notes) => {
+  Note.findOneAndUpdate({ _id: noteId }, { $push: { items: newNoteItem } }, (err, note) => {
     if (err) {
       res.sendStatus(403);
       return;
     }
-    res.sendStatus(200);
+    res.status(200).send({ noteItem: newNoteItem });
     return;
   });
 }
