@@ -34,6 +34,12 @@ const notes = (
       };
       return newState;
 
+    case 'IS_FETCHING':
+      return {
+        ...state,
+        isFetching: action.flag,
+      };
+      
     default:
       return state;
   }

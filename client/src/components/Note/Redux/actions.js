@@ -22,3 +22,8 @@ export const addNoteItem = (noteId, noteItem) => ({
   noteId,
   noteItem,
 });
+
+export const isFetching = flag => ({
+  type: 'IS_FETCHING',
+  flag,
+});

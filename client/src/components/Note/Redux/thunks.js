@@ -1,16 +1,18 @@
 import axios from 'axios';
 import { api } from 'config';
-import { addNotes, addNote, addNoteItem } from './actions';
+import { addNotes, addNote, addNoteItem, isFetching } from './actions';
 
 export const fetchNotes = () => (
   async dispatch => {
     try {
+      dispatch(isFetching(true));
       const response = await axios.get(`${ api }/notes`);
       const notes = response.data.notes.map(note => ({
         ...note,
         textFieldValue: '',
       }));
       dispatch(addNotes(notes));
+      dispatch(isFetching(false));
     } catch (error) {
       console.log('An error occurred.', error);
     }
