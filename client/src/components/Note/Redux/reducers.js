@@ -1,20 +1,37 @@
-const notes = (state = [], action) => {
+const notes = (
+  state = {
+    isFetching: false,
+    items: [],
+  },
+  action,
+) => {
   switch (action.type) {
     case 'ADD_NOTES':
-      return [
+      return {
         ...state,
-        ...action.notes,
-      ];
+        items: [
+          ...state.items,
+          ...action.notes,
+        ]
+      };
     
     case 'ADD_NOTE':
-      return [
-        action.note,
+      return {
         ...state,
-      ];
+        items: [
+          action.note,
+          ...state.items,
+        ],
+      };
 
     case 'ADD_NOTE_ITEM':
-      const newState = [ ...state ];
-      newState.find(note => note._id === action.noteId).items.push(action.noteItem);
+      const { noteItem } = action;
+      const copiedItems = [ ...state.items ];
+      copiedItems.find(note => note._id === action.noteId).noteItems.push(noteItem);
+      const newState = {
+        ...state,
+        items: [ ...copiedItems ],
+      };
       return newState;
 
     default:

@@ -8,7 +8,7 @@ const NoteItemSchema = new Schema({
 
 const NoteSchema = new Schema({
   title: { type: String, required: true },
-  items: {
+  noteItems: {
     type: [NoteItemSchema],
   },
   createdAt: { type: Date, default: Date.now, required: true },

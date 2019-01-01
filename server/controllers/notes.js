@@ -32,7 +32,7 @@ export const addNoteItem = (req, res) => {
   const newNoteItem = new NoteItem({ label });
   Note.findOneAndUpdate(
     { _id: noteId },
-    { $push: { items: newNoteItem } },
+    { $push: { noteItems: newNoteItem } },
     err => {
       if (err) {
         res.sendStatus(403);

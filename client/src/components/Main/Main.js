@@ -4,12 +4,12 @@ import Note from 'components/Note/Note';
 
 const Main = ({ notes }) => (
   <main>
-    { notes.map(({ title, items, _id: id, textFieldValue }) => (
+    { notes.map(({ title, noteItems, _id: id, textFieldValue }) => (
       <Note
         key={ id }
         id={ id }
         title={ title }
-        items={ items }
+        noteItems={ noteItems }
         textFieldValue={ textFieldValue }
       />
     )) }
