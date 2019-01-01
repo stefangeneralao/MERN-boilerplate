@@ -5,6 +5,9 @@ import uri from './dbConnectionString.json';
 import notesRouter from './routes/notes';
 import mongoose from 'mongoose';
 
+// Fix warning: "(node:23061) DeprecationWarning: collection.findAndModify is deprecated."
+mongoose.set('useFindAndModify', false);
+
 const app = express();
 const port = 3001;
 

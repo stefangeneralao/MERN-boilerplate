@@ -1,10 +1,13 @@
 import React from 'react';
+import './NoteItem.scss';
 
-const NoteItem = ({ label, completed }) => (
-  <div>
-    <p>{ label }</p>
-    { completed && <p>X</p>}
-  </div>
-);
+const NoteItem = ({ label, completed }) => {
+  const className = `note-item${ completed ? ' completed' : '' }`;
+  return (
+    <div className={ className }>
+      <p>{ label }</p>
+    </div>
+  )
+};
 
 export default NoteItem;

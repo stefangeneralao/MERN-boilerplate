@@ -1,14 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from 'components/App/AppContainer';
+import App from 'components/App/App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
-import rootReducer from './reducers';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunkMiddleware from 'redux-thunk';
+import notes from 'components/Note/Redux/reducers';
+import { combineReducers } from 'redux';
+import { fetchNotes } from 'components/Note/Redux/thunks';
 
+const rootReducer = combineReducers({ notes });
 const composeEnhancers = composeWithDevTools({});
 const store = createStore(
   rootReducer,
@@ -18,6 +21,9 @@ const store = createStore(
     ),
   ),
 );
+
+// Fetch initial data
+store.dispatch(fetchNotes());
 
 ReactDOM.render(
   <Provider store={ store }>

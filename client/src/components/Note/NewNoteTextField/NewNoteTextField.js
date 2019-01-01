@@ -1,16 +1,12 @@
 import React from 'react';
 import './NewNoteTextField.scss';
 
-const TextField = ({ setValue, clearValue, value, postNote }) => {
+const TextField = ({ postNote }) => {
   const onSubmitHandler = e => {
     e.preventDefault();
+    const { value } = e.currentTarget.textfield;
     postNote(value);
-    clearValue();
-  }
-
-  const onChangeHandler = e => {
-    const { value } = e.currentTarget;
-    setValue(value);
+    e.currentTarget.textfield.value = '';
   }
   
   return (
@@ -20,8 +16,6 @@ const TextField = ({ setValue, clearValue, value, postNote }) => {
           type="text"
           name="textfield"
           id="textfield"
-          onChange={ onChangeHandler }
-          value={ value }
           placeholder="Create a note"
         />
       </form>

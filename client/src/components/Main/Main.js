@@ -1,14 +1,19 @@
 import React from 'react';
 import './Main.scss';
+import Note from 'components/Note/Note';
 
-class Main extends React.Component {
-  render() {
-    return (
-      <main>
-        { this.props.children }
-      </main>
-    );
-  }
-}
+const Main = ({ notes }) => (
+  <main>
+    { notes.map(({ title, items, _id: id, textFieldValue }) => (
+      <Note
+        key={ id }
+        id={ id }
+        title={ title }
+        items={ items }
+        textFieldValue={ textFieldValue }
+      />
+    )) }
+  </main>
+);
 
 export default Main;

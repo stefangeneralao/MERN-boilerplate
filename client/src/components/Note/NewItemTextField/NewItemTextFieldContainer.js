@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import NewItemTextField from './NewItemTextField';
-import { submitNoteItem } from 'actions';
+import { submitNoteItem } from '../Redux/thunks';
 
 const mapDispatchToProps = (dispatch, { id }) => ({
   onSubmit: label => dispatch(submitNoteItem(id, label)),
