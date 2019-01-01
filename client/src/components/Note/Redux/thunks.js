@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { api } from 'config';
-import { addNotes, addNote, addNoteItem, isFetching } from './actions';
+import { addNotes, addNote, addNoteItem, isFetching, isFetchingFailed } from './actions';
 
 export const fetchNotes = () => (
   async dispatch => {
@@ -14,7 +14,8 @@ export const fetchNotes = () => (
       dispatch(addNotes(notes));
       dispatch(isFetching(false));
     } catch (error) {
-      console.log('An error occurred.', error);
+      dispatch(isFetchingFailed(true));
+      dispatch(isFetching(false));
     }
   }
 );

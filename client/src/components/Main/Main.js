@@ -2,9 +2,16 @@ import React from 'react';
 import './Main.scss';
 import Note from 'components/Note/Note';
 
-const Main = ({ notes, isFetching }) => (
-  isFetching ?
-    <p>Loading notes</p> : 
+const Main = ({ notes, isFetching, isFetchingFailed }) => {
+  if (isFetching) {
+    return <p>Loading notes</p>;
+  }
+
+  if (isFetchingFailed) {
+    return <p>Fetching failed</p>;
+  }
+
+  return (
     <main>
       { notes.map(({ title, noteItems, _id: id, textFieldValue }) => (
         <Note
@@ -16,6 +23,7 @@ const Main = ({ notes, isFetching }) => (
         />
       )) }
     </main>
-);
+  );
+};
 
 export default Main;

@@ -27,3 +27,8 @@ export const isFetching = flag => ({
   type: 'IS_FETCHING',
   flag,
 });
+
+export const isFetchingFailed = flag => ({
+  type: 'IS_FETCHING_FAILED',
+  flag,
+});

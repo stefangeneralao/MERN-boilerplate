@@ -1,6 +1,7 @@
 const notes = (
   state = {
     isFetching: false,
+    isFetchingFailed: false,
     items: [],
   },
   action,
@@ -38,6 +39,12 @@ const notes = (
       return {
         ...state,
         isFetching: action.flag,
+      };
+
+    case 'IS_FETCHING_FAILED':
+      return {
+        ...state,
+        isFetchingFailed: action.flag,
       };
       
     default:
