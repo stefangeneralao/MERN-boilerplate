@@ -1,13 +1,6 @@
-require('@babel/register')({
-  presets: [
-    [
-      "@babel/preset-env",
-      {
-        targets: {
-          node: "current"
-        }
-      }
-    ]
-  ]
+require('babel-polyfill');
+require('babel-register')({
+  presets: [ 'env' ]
 });
-require('./server.js');
+
+module.exports = require('./server.js');
